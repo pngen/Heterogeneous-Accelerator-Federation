@@ -1,0 +1,49 @@
+# Build outputs
+/build/
+/build-*/
+/out/
+/install/
+/install-*/
+/_build*/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+compile_commands.json
+*.user
+*.suo
+.vs/
+.vscode/
+.idea/
+
+# Binaries / intermediates
+*.obj
+*.o
+*.exe
+*.dll
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.idb
+*.bin
+*.cubin
+*.ptx
+*.fatbin
+*.so
+*.dylib
+*.a
+
+# Sanitizer / crash / diagnostics
+asan/
+*.asan.log
+*.log
+core.*
+*.dmp
+
+# Scratch
+/scratch/
+/tmp/
+*.tmp

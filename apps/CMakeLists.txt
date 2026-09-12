@@ -1,0 +1,15 @@
+add_executable(haf_coordinator coordinator_main.cpp)
+target_link_libraries(haf_coordinator PRIVATE haf_net haf_adapters)
+haf_apply_warnings(haf_coordinator)
+
+add_executable(haf_agent agent_main.cpp)
+target_link_libraries(haf_agent PRIVATE haf_net haf_adapters)
+if(TARGET haf_adapter_cuda)
+  target_link_libraries(haf_agent PRIVATE haf_adapter_cuda)
+  target_compile_definitions(haf_agent PRIVATE HAF_HAVE_CUDA_ADAPTER=1)
+endif()
+haf_apply_warnings(haf_agent)
+
+add_executable(haf_cli cli_main.cpp)
+target_link_libraries(haf_cli PRIVATE haf_net haf_adapters)
+haf_apply_warnings(haf_cli)

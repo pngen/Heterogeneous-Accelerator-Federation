@@ -1,0 +1,18 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+
+# haf_core links the platform threading library publicly, so a consumer needs
+# the same imported target available before the exported targets are included.
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_dependency(Threads)
+
+# The CUDA adapter, when this build produced one, links the CUDA runtime.
+set(HeterogeneousAcceleratorFederation_CUDA_ADAPTER @HAF_CUDA_AVAILABLE@)
+if(HeterogeneousAcceleratorFederation_CUDA_ADAPTER)
+  find_dependency(CUDAToolkit)
+endif()
+
+include("${CMAKE_CURRENT_LIST_DIR}/HeterogeneousAcceleratorFederationTargets.cmake")
+
+check_required_components(HeterogeneousAcceleratorFederation)
